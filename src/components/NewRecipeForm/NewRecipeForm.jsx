@@ -1,5 +1,6 @@
 import { Component } from 'react';
 
+
 export default class NewRecipeForm extends Component {
   state = {
     title: '',
@@ -19,15 +20,15 @@ export default class NewRecipeForm extends Component {
 
     const recipesAPI = require('../../utilities/recipes-api')
     evt.preventDefault();
+
     try {
       const formData = { ...this.state };
       delete formData.confirm;
       delete formData.error;
-      const recipe = await recipesAPI.add(formData);
-      console.log(recipe)
-
+      await recipesAPI.add(formData);
+    
     } catch {
-      // Invalid signup
+      // Invalid recipe
       this.setState({
         error: 'Error Adding Recipe - Try Again'
       });

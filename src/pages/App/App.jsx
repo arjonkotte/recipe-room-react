@@ -5,14 +5,11 @@ import NewRecipeForm from '../../components/NewRecipeForm/NewRecipeForm';
 import AllRecipesPage from '../AllRecipesPage/AllRecipesPage';
 import AuthPage from '../AuthPage/AuthPage';
 import NavBar from '../../components/NavBar/NavBar';
+import RecipeDetailPage from '../RecipeDetailPage/RecipeDetailPage'
 import './App.css';
 
 function App() {
   const [user, setUser] = useState(getUser());
-  const [recipes, setRecipes] = useState([]);
-
-  const recipesAPI = require('../../utilities/recipes-api')
-
 
   return (
     <main className="App">
@@ -21,9 +18,10 @@ function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
             {/* Route components in here */}
-            <Route path="/recipes/new" element={<NewRecipeForm/>} />} />
+            <Route path="/recipes/new" element={<NewRecipeForm/>} />
             <Route path="/recipes" element={<AllRecipesPage />} />
             <Route path="/" element={<AllRecipesPage />} />
+            <Route path="" element={<RecipeDetailPage/>}/>
           </Routes>
         </>
         :
