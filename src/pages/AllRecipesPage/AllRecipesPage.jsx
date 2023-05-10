@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useParams } from 'react';
+import { Link } from 'react-router-dom';
 import './AllRecipesPage.css'
 
 
@@ -29,13 +30,9 @@ export default function AllRecipesPage() {
           <tr key={index}>
             <td>{recipe.title}</td>
             <td>{recipe.prepTime}</td>
+            <td><Link to={`"/recipes/${recipe.id}"`}>See Details</Link></td>
           </tr>
         ))};
-          {/* <tr>
-            <td><a href="/recipes/<%=r._id%>"><%=r.title%></a></td>
-            <td><%=r.prepTime%></td>
-          </tr>
-        <% }); %> */}
         </tbody>
       </table>
     </main>

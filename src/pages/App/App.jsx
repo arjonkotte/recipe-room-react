@@ -21,7 +21,7 @@ function App() {
             <Route path="/recipes/new" element={<NewRecipeForm/>} />
             <Route path="/recipes" element={<AllRecipesPage />} />
             <Route path="/" element={<AllRecipesPage />} />
-            <Route path="" element={<RecipeDetailPage/>}/>
+            <Route path="/recipes/:id" element={<RecipeDetailPage/>}/>
           </Routes>
         </>
         :
