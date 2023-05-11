@@ -2,7 +2,6 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-// const User = require('./user')
 
 const reviewSchema = new Schema({
     name: {type: String, required: true},
@@ -19,7 +18,7 @@ const recipeSchema = new Schema({
     prepTime: {type: String, required: true},
     ingredients: {type: [], required: true},
     reviews: [reviewSchema],
-    // createdBy: {User}
+    createdBy: { type: Schema.Types.ObjectId, ref: 'User', populate: { select: 'name' } }
 }, {
     timestamps: true
 })

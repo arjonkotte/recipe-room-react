@@ -1,4 +1,4 @@
-import { useState, useEffect, useParams } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './AllRecipesPage.css'
 
@@ -22,17 +22,21 @@ export default function AllRecipesPage() {
     <main>
       <table id="list">
         <thead>
-          <th>Title</th>
-          <th>Preparation Time</th>
+          <tr>
+            <th>Title</th>
+            <th>Preparation Time</th>
+            <th>Author</th>
+          </tr>
         </thead>
         <tbody>
         {recipes.map((recipe, index) => (
           <tr key={index}>
             <td>{recipe.title}</td>
             <td>{recipe.prepTime}</td>
-            <td><Link to={`"/recipes/${recipe.id}"`}>See Details</Link></td>
+            <td>{recipe.createdBy.name}</td>
+            <td><Link to={`/recipes/${recipe._id}`}>See Details</Link></td>
           </tr>
-        ))};
+        ))}
         </tbody>
       </table>
     </main>

@@ -7,6 +7,7 @@ export default class NewRecipeForm extends Component {
     instructions: '',
     prepTime: '',
     ingredients: '',
+    createdBy: this.props.user._id
   }
     
   handleChange = async(e) => {
