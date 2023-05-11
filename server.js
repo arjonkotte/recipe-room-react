@@ -14,14 +14,18 @@ app.use(logger('dev'));
 // Content-Type: 'application/json'
 // and put that data on req.body
 app.use(express.json());
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
-app.use(express.static(path.join(__dirname, 'build')));
+
+if(process.env.NODE_ENV === 'production'){
+  app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
+  app.use(express.static(path.join(__dirname, 'build')));
+}
 
 // middleware that adds the user object from a JWT to req.user
 app.use(require('./config/checkToken'));
 
 // Put all API routes here (before the catch-all)
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/recipes', require('./routes/api/recipes'));
 
 // "catch-all" route that will match all GET requests
 // that don't match an API route defined above
