@@ -1,6 +1,8 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import DeleteRecipeButton from '../../components/DeleteRecipeButton/DeleteRecipeButton';
+import ReviewForm from '../../components/ReviewForm/ReviewForm'
+import './RecipeDetailPage.css'
 
 export default function RecipeDetailPage({user}) {
   const recipesAPI = require('../../utilities/recipes-api');
@@ -15,7 +17,7 @@ export default function RecipeDetailPage({user}) {
       setRecipe(recipe);
     }
     getRecipe();
-  }, [id]);
+  }, [recipesAPI, id]);
 
   if (!recipe) {
     return <div>Loading...</div>;
@@ -29,6 +31,15 @@ export default function RecipeDetailPage({user}) {
   // add an onClick function to the edit button
   const handleEdit = () => {
     navigate(`/recipes/${id}/edit`);
+  };
+
+  const handleReviewSubmit = async (review) => {
+    const updatedRecipe = {
+      ...recipe,
+      reviews: [...recipe.reviews, review],
+    };
+    const updated = await recipesAPI.update(updatedRecipe._id, updatedRecipe);
+    setRecipe(updated);
   };
 
   return (
@@ -68,6 +79,9 @@ export default function RecipeDetailPage({user}) {
           ))}
         </tbody>
       </table>
+
+      <h4>Write a review!</h4>
+      {user && <ReviewForm handleReviewSubmit={handleReviewSubmit} user={user} />}
     </main>
   );
 }

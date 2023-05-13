@@ -15,7 +15,7 @@ export default function AllRecipesPage() {
       setRecipes(data);
     }
     fetchRecipes();
-  }, []);
+  }, [recipesAPI]);
   
   
   return (
@@ -26,6 +26,7 @@ export default function AllRecipesPage() {
             <th>Title</th>
             <th>Preparation Time</th>
             <th>Author</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -34,7 +35,7 @@ export default function AllRecipesPage() {
             <td>{recipe.title}</td>
             <td>{recipe.prepTime}</td>
             <td>{recipe.createdBy.name}</td>
-            <td><Link to={`/recipes/${recipe._id}`}>See Details</Link></td>
+            <td><Link to={`/recipes/${recipe._id}`} className="button">See Details</Link></td>
           </tr>
         ))}
         </tbody>
