@@ -14,11 +14,21 @@ export default function NewRecipeForm(props) {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-      error: ''
-    });
+    if (e.target.name === 'ingredients') {
+      // Split the ingredients by comma and remove whitespace
+      const ingredientsArray = e.target.value.split(',').map((ingredient) => ingredient.trim());
+      setFormData({
+        ...formData,
+        [e.target.name]: ingredientsArray,
+        error: ''
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value,
+        error: ''
+      });
+    }
   }
 
   const handleSubmit = async (evt) => {

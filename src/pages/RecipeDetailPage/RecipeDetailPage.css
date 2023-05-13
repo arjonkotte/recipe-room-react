@@ -25,4 +25,14 @@ table {
     padding: 0;
     list-style-type: none;
   }
+
+  main {
+    text-align: left;
+  }
+
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
   
