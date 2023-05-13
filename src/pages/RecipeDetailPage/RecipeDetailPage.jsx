@@ -44,8 +44,8 @@ export default function RecipeDetailPage({user}) {
 
   return (
     <main>
-      <h2>{recipe.title}</h2>
-      <p>Preparation Time: {recipe.prepTime}</p>
+      <h2 className="title">{recipe.title}</h2>
+      <h4>Preparation Time: {recipe.prepTime}</h4>
       <h3>Ingredients:</h3>
       <ul>
         {recipe.ingredients.map((ingredient, index) => (
