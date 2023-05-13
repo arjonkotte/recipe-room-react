@@ -36,3 +36,121 @@
     transform: rotate(360deg);
   }
 }
+
+Set the font and background color for the whole page
+body {
+  font-family: Arial, sans-serif;
+  background-color: #F4F4F4;
+}
+
+/* Style the header */
+header {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style the navigation bar */
+nav {
+  background-color: #444;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Style the links in the navigation bar */
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+/* Style the main content area */
+main {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* Style the footer */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Style the buttons */
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the form fields */
+input[type=text], input[type=password], select {
+  padding: 10px;
+  margin: 10px 0;
+  display: block;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+input[type=text]:focus, input[type=password]:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Style the form buttons */
+input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover, input[type=reset]:hover {
+  background-color: #3e8e41;
+}
+
+/* Style the error messages */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Style the success messages */
+.success {
+  color: green;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* Style the table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  text-align: left;
+  padding: 8px;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+

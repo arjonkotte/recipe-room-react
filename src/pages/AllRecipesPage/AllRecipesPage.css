@@ -1,23 +1,48 @@
-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  th, td {
-    text-align: left;
-    padding: 8px;
-  }
-  
-  th {
-    background-color: #f2f2f2;
-    color: #444;
-    font-weight: bold;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  tr:hover {
-    background-color: #ddd;
-  }
+#list {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#list td {
+  padding: 0.5rem;
+}
+
+#list tbody tr:nth-child(odd) {
+  background-color: #f5f5f5;
+}
+
+#list tbody tr:hover {
+  background-color: #e5e5e5;
+  cursor: pointer;
+}
+
+#list th {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+#list a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+#list a:hover {
+  text-decoration: underline;
+}
+
+
+.button {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
