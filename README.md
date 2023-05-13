@@ -19,7 +19,7 @@ Technologies used (MERN stack):
 
 # Pages
 ## Landing Page
-![image](https://user-images.githubusercontent.com/111325773/217380540-89ff01bb-0e05-4785-b7c3-4849e5f26bc2.png)
+![image](https://github.com/arjonkotte/recipe-room-react/assets/111325773/dd6d2375-81ed-47f1-8e63-c8c695441ebc)
 
 ## Add Recipe Page
 ![image](https://github.com/arjonkotte/recipe-room-react/assets/111325773/6460e826-662f-4dca-8309-72f175f42af7)
