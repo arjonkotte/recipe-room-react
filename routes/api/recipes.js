@@ -8,5 +8,8 @@ router.get('/', recipesCtrl.getAll);
 router.get('/:id', recipesCtrl.getOne)
 
 router.post('/', recipesCtrl.create);
+router.post('/:id/edit', recipesCtrl.updateRecipe)
+
+router.delete('/:id', recipesCtrl.deleteOne)
 
 module.exports = router;

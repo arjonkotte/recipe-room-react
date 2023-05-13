@@ -1,59 +1,58 @@
-import { Component } from 'react';
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
-
-export default class NewRecipeForm extends Component {
-  state = {
+export default function NewRecipeForm(props) {
+  const [formData, setFormData] = useState({
     title: '',
     instructions: '',
     prepTime: '',
     ingredients: '',
-    createdBy: this.props.user._id
-  }
-    
-  handleChange = async(e) => {
-    this.setState({
+    createdBy: props.user._id
+  });
+  const [error, setError] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value,
       error: ''
     });
   }
 
-  handleSubmit = async (evt) => {
-
-    const recipesAPI = require('../../utilities/recipes-api')
+  const handleSubmit = async (evt) => {
+    const recipesAPI = require('../../utilities/recipes-api');
     evt.preventDefault();
 
-    try {
-      const formData = { ...this.state };
-      delete formData.confirm;
-      delete formData.error;
-      await recipesAPI.add(formData);
-    
+    try {  
+      const newRecipe = { ...formData };
+      delete newRecipe.confirm;
+      delete newRecipe.error;
+      await recipesAPI.add(newRecipe);
+      navigate('/recipes');
     } catch {
       // Invalid recipe
-      this.setState({
-        error: 'Error Adding Recipe - Try Again'
-      });
+      setError('Error Adding Recipe - Try Again');
     }
   }
 
-
-  render() {
-    
-    return (
-      <main>
-        <form onSubmit={this.handleSubmit}>
-          <label>Title:</label>
-          <input type="text" name="title" value={this.title} onChange={this.handleChange}></input>
-          <label>Prep. Time:</label>
-          <input type="text" name="instructions" value={this.instructions} onChange={this.handleChange}></input>
-          <label>Instructions:</label>
-          <textarea name="prepTime" value={this.prepTime} onChange={this.handleChange}></textarea>
-          <label>Ingredients:</label>
-          <input name="ingredients" value={this.ingredients} onChange={this.handleChange}></input>
-          <button type="reset">Clear</button>
-          <button type="submit">Add Recipe</button>
-        </form>
-      </main>
-    );
-  }
+  return (
+    <main>
+      <form>
+        <label>Title:</label>
+        <input type="text" name="title" value={formData.title} onChange={handleChange}></input>
+        <label>Prep. Time:</label>
+        <input type="text" name="prepTime" value={formData.prepTime} onChange={handleChange}></input>
+        <label>Instructions:</label>
+        <textarea name="instructions" value={formData.instructions} onChange={handleChange}></textarea>
+        <label>Ingredients:</label>
+        <input name="ingredients" value={formData.ingredients} onChange={handleChange}></input>
+        <button type="reset">Clear</button>
+        <button type="button" onClick={handleSubmit}>Add Recipe</button>
+        <Link to="/recipes"><button>Cancel</button></Link>
+        {error && <div>{error}</div>}
+      </form>
+    </main>
+  );
 }

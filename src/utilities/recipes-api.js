@@ -13,3 +13,11 @@ export function getOne(id) {
 export function add(content) {
   return sendRequest(`${BASE_URL}`, 'POST', content);
 }
+
+export function deleteRecipe(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE', {})
+}
+
+export function update(id, content) {
+  return sendRequest(`${BASE_URL}/${id}/edit`, 'POST', content)
+}
